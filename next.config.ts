@@ -20,7 +20,6 @@ process.env.NEXT_PUBLIC_BASE_PATH = basePath;
 const nextConfig: NextConfig = {
   output: "export",
   basePath: basePath || undefined,
-  assetPrefix: basePath || undefined,
   trailingSlash: true,
   images: {
     unoptimized: true,
