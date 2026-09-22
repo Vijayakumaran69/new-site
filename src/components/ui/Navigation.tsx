@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 interface NavigationProps {
   onOpenContact: () => void;
@@ -22,6 +23,8 @@ export default function Navigation({ onOpenContact }: NavigationProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const logoSrc = getAssetPath("/xenclavis-logo.png");
 
   const navItems = [
     { label: "HOME", href: "/" },
@@ -41,7 +44,7 @@ export default function Navigation({ onOpenContact }: NavigationProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Logo Brand Brand Identity */}
+          {/* Logo Brand Identity */}
           <Link
             href="/"
             prefetch={true}
@@ -49,7 +52,7 @@ export default function Navigation({ onOpenContact }: NavigationProps) {
           >
             <div className="relative w-9 h-9 shrink-0">
               <Image
-                src="/xenclavis-logo.png"
+                src={logoSrc}
                 alt="Xenclavis Official Logo"
                 fill
                 sizes="36px"
@@ -112,7 +115,7 @@ export default function Navigation({ onOpenContact }: NavigationProps) {
               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-3">
                 <div className="relative w-9 h-9 shrink-0">
                   <Image
-                    src="/xenclavis-logo.png"
+                    src={logoSrc}
                     alt="Xenclavis Official Logo"
                     fill
                     sizes="36px"

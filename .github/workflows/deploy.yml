@@ -37,6 +37,8 @@ jobs:
         run: npm ci
 
       - name: Build Next.js Static Export
+        env:
+          NEXT_PUBLIC_BASE_PATH: "/new-site"
         run: npm run build
 
       - name: Upload Pages Artifact

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
+import { getAssetPath } from "@/lib/utils";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -16,6 +17,9 @@ const inter = Inter({
   display: "swap",
 });
 
+const logoUrl = getAssetPath("/xenclavis-logo.png");
+const faviconUrl = getAssetPath("/favicon.png");
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://xenclavis.com"),
   title: "Xenclavis | Enterprise Cybersecurity & Threat Intelligence",
@@ -23,11 +27,11 @@ export const metadata: Metadata = {
     "Xenclavis helps organizations identify, assess, understand, and remediate security risks before those risks become business problems. Core services include VAPT, Web, Mobile, API, Network Security, Source Code Review, and Digital Forensics. We Secure What You Create.",
   icons: {
     icon: [
-      { url: "/xenclavis-logo.png", type: "image/png" },
-      { url: "/favicon.png", type: "image/png" },
+      { url: logoUrl, type: "image/png" },
+      { url: faviconUrl, type: "image/png" },
     ],
-    shortcut: "/xenclavis-logo.png",
-    apple: "/xenclavis-logo.png",
+    shortcut: logoUrl,
+    apple: logoUrl,
   },
   keywords: [
     "Cybersecurity",
@@ -52,14 +56,14 @@ export const metadata: Metadata = {
     siteName: "Xenclavis",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/xenclavis-logo.png", width: 1024, height: 1021, alt: "Xenclavis Logo" }],
+    images: [{ url: logoUrl, width: 1024, height: 1021, alt: "Xenclavis Logo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Xenclavis | Enterprise Cybersecurity",
     description:
       "Cybersecurity built to identify, understand and reduce risk before it becomes a business problem.",
-    images: ["/xenclavis-logo.png"],
+    images: [logoUrl],
   },
   robots: {
     index: true,

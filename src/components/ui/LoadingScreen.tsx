@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/utils";
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -11,6 +12,8 @@ interface LoadingScreenProps {
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [statusText, setStatusText] = useState("INITIALIZING SECURITY ENVIRONMENT");
   const [progress, setProgress] = useState(0);
+
+  const logoSrc = getAssetPath("/xenclavis-logo.png");
 
   useEffect(() => {
     const duration = 1000;
@@ -56,7 +59,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             className="relative w-24 h-24 mx-auto mb-2"
           >
             <Image
-              src="/xenclavis-logo.png"
+              src={logoSrc}
               alt="Xenclavis Official Logo"
               fill
               sizes="96px"

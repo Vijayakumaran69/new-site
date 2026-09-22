@@ -3,12 +3,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/utils";
 
 interface FooterProps {
   onOpenContact: () => void;
 }
 
 export default function Footer({ onOpenContact }: FooterProps) {
+  const logoSrc = getAssetPath("/xenclavis-logo.png");
+
   const cybersecurityLinks = [
     "Web Security",
     "Mobile Security",
@@ -44,7 +47,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
             <Link href="/" className="flex items-center space-x-3 group">
               <div className="relative w-10 h-10 shrink-0">
                 <Image
-                  src="/xenclavis-logo.png"
+                  src={logoSrc}
                   alt="Xenclavis Official Logo"
                   fill
                   sizes="40px"

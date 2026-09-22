@@ -6,6 +6,7 @@ import * as THREE from "three";
 import BaseCanvas from "./webgl/BaseCanvas";
 import ParticleField from "./webgl/ParticleField";
 import ProceduralNetwork from "./webgl/ProceduralNetwork";
+import { getAssetPath } from "@/lib/utils";
 
 function HomeScene({ scrollProgress }: { scrollProgress: number }) {
   const groupRef = useRef<THREE.Group>(null);
@@ -15,11 +16,12 @@ function HomeScene({ scrollProgress }: { scrollProgress: number }) {
   const innerRingRef = useRef<THREE.Mesh>(null);
   const techCubeRef = useRef<THREE.Mesh>(null);
 
-  // Non-suspending, non-blocking texture loader so the scene renders immediately on frame 1
+  // Non-suspending, non-blocking texture loader using basePath aware asset resolution
   const logoTexture = useMemo(() => {
     if (typeof window === "undefined") return null;
     const loader = new THREE.TextureLoader();
-    const tex = loader.load("/xenclavis-logo.png");
+    const logoUrl = getAssetPath("/xenclavis-logo.png");
+    const tex = loader.load(logoUrl);
     tex.colorSpace = THREE.SRGBColorSpace;
     return tex;
   }, []);
