@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #040507;
+    --bg-surface: #080a0f;
+    --accent-cyan: #00F0FF;
+    --accent-blue: #0088FF;
+    --accent-threat: #FF3B30;
+    --accent-amber: #FF9500;
+    --text-primary: #F2F4F8;
+    --text-secondary: #8E9BAE;
+    --text-muted: #525E70;
+    --border-hairline: rgba(255, 255, 255, 0.06);
+    --border-active: rgba(0, 240, 255, 0.3);
+    --border-threat: rgba(255, 59, 48, 0.3);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar - Subdued */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* Typography Headings - Editorial Sans */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Minimal Editorial Surfaces */
+.editorial-surface {
+  background: rgba(10, 13, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.editorial-surface-active {
+  background: rgba(12, 17, 26, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.editorial-surface-threat {
+  background: rgba(26, 12, 14, 0.5);
+  border: 1px solid rgba(255, 59, 48, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Text Gradients - Restrained */
+.text-gradient-white {
+  background: linear-gradient(180deg, #FFFFFF 0%, #B0BAC9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(180deg, #FFFFFF 0%, #00F0FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-threat {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FF3B30 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Minimal Editorial Button */
+.btn-editorial-primary {
+  position: relative;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-inter), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #040507;
+  background-color: #F2F4F8;
+  border: 1px solid #F2F4F8;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-editorial-primary:hover {
+  background-color: #00F0FF;
+  border-color: #00F0FF;
+  color: #040507;
+  transform: translateY(-1px);
+}
+
+.btn-editorial-secondary {
+  position: relative;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-inter), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #F2F4F8;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-editorial-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Keyframe Animations */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 4s ease-in-out infinite;
+}
+
+

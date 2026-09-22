@@ -1,0 +1,8 @@
+{
+  "antigravity.agent.toolExecutionPolicy": "always-proceed",
+  "antigravity.artifactReviewMode": "always-proceed",
+  "antigravity.autoAcceptCodeEdits": true,
+  "antigravity.autoApproveTerminalCommands": true,
+  "antigravity.fileAccessPolicy": "allow",
+  "antigravity.internetAccessPolicy": "allow"
+}
